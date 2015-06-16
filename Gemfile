@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # twitter bootstrap for CSS styling
 gem "twitter-bootstrap-rails"
+# file uploads and image managment gem
+gem "paperclip", "~> 4.2"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
