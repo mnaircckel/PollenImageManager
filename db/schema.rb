@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616222933) do
+ActiveRecord::Schema.define(version: 20150616225754) do
 
   create_table "pollen_images", force: :cascade do |t|
     t.string   "tags"

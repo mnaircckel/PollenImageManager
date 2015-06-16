@@ -57,7 +57,8 @@ class PollenImagesController < ApplicationController
     @pollen_image.destroy
     respond_to do |format|
       format.html { redirect_to pollen_images_url, notice: 'Pollen image was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { hea
+      d :no_content }
     end
   end
 
@@ -69,6 +70,6 @@ class PollenImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pollen_image_params
-      params.require(:pollen_image).permit(:tags,:name,:title)
+      params.require(:pollen_image).permit(:tags,:title,:image)
     end
 end

@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "twitter-bootstrap-rails"
 # file uploads and image managment gem
 gem "paperclip", "~> 4.2"
+# dropbox for paperclip storage
+gem "paperclip-dropbox", ">= 1.1.7"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

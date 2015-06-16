@@ -1,6 +1,7 @@
 <%- model_class = PollenImage -%>
 <div class="page-header">
   <h1><%=t '.title', :default => @pollen_image.title %></h1>
+  <%= image_tag @pollen_image.image(:medium) %>
 </div>
 
 <dl class="dl-horizontal">
@@ -9,7 +10,6 @@
   <dt><strong><%= model_class.human_attribute_name(:tags) %>:</strong></dt>
   <dd><%= @pollen_image.tags %></dd>
 </dl>
-
 <%= link_to t('.back', :default => t("helpers.links.back")),
               pollen_images_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
