@@ -1,0 +1,39 @@
+<%= form_for @pollen_image, :html => { :class => "form-horizontal pollen_image" } do |f| %>
+
+    <% if @pollen_image.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@pollen_image.errors.count, "error") %> prohibited this pollen_image from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @pollen_image.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :tags, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tags, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:tags]) %>
+  </div>
+
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            pollen_images_path, :class => 'btn btn-default' %>
+
+<% end %>
