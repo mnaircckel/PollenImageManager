@@ -57,8 +57,7 @@ class PollenImagesController < ApplicationController
     @pollen_image.destroy
     respond_to do |format|
       format.html { redirect_to pollen_images_url, notice: 'Pollen image was successfully destroyed.' }
-      format.json { hea
-      d :no_content }
+      format.json { head :no_content }
     end
   end
 
