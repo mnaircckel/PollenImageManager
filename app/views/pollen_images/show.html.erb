@@ -4,12 +4,10 @@
   <%= image_tag @pollen_image.image(:medium) %>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @pollen_image.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:tags) %>:</strong></dt>
-  <dd><%= @pollen_image.tags %></dd>
-</dl>
+<h5 class="dl-horizontal">
+  <h5><strong><%= model_class.human_attribute_name(:title) %>:</strong><%= " " + @pollen_image.title %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:tags) %>:</strong><%= " " + @pollen_image.tags %></h5>
+</h5>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               pollen_images_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
