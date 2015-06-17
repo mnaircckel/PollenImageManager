@@ -14,7 +14,7 @@
   <tbody>
     <% @pollen_images.each do |pollen_image| %>
       <tr>
-        <td><%= link_to pollen_image.title, pollen_image_path(pollen_image)%></td>
+        <td><%= image_tag pollen_image.image(:thumb) %><%= link_to pollen_image.title, pollen_image_path(pollen_image)%></td>
         <td><%= pollen_image.tags %></td>
         <td><%=l pollen_image.created_at %></td>
         <td>
