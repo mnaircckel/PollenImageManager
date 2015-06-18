@@ -16,9 +16,11 @@
   <tbody>
     <% @pollen_images.each do |pollen_image| %>
       <tr>
-        <td><%= image_tag pollen_image.image(:thumb) %><%= link_to pollen_image.title, pollen_image_path(pollen_image)%></td>
+        <td><%= image_tag pollen_image.image(:thumb) %><%= t " " + pollen_image.title %></td>
         <td><%= pollen_image.tags %></td>
         <td>
+          <%= link_to t('.view', :default => t("helpers.links.view")),
+                      pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

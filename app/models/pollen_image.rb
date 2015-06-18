@@ -1,7 +1,7 @@
 class PollenImage < ActiveRecord::Base
   validates :title, :presence => true
   has_attached_file :image,
-    :default_url => "/images/missing.png",
+    :default_url => "/images/missing_image.png",
     :storage => :dropbox,
     :dropbox_credentials => {app_key: "g0nkzx98joscnb1", app_secret: "bsabyg3e2kr9087", 
                              access_token: "wta4ult7indaz4n6", access_token_secret: "z8rgt2npm3mg7zy",
