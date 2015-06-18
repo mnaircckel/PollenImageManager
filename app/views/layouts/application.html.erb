@@ -2,7 +2,12 @@
 <html>
 <head>
   <title>Image Manager</title>
-  <%= nav_bar static: :top  %>
+  
+  <%= nav_bar static: :top, brand: "Image Database" do %>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+    <% end %>
+  <% end %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>

@@ -1,13 +1,12 @@
 <%- model_class = PollenImage -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h2><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:tags) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -16,7 +15,6 @@
       <tr>
         <td><%= image_tag pollen_image.image(:thumb) %><%= link_to pollen_image.title, pollen_image_path(pollen_image)%></td>
         <td><%= pollen_image.tags %></td>
-        <td><%=l pollen_image.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
