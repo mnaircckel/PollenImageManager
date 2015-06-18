@@ -1,6 +1,9 @@
 <%- model_class = PollenImage -%>
 <div class="page-header">
   <h2><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
+  <%= link_to t('.add_image', :default => t("helpers.links.add_image")),
+            new_pollen_image_path,
+            :class => 'btn btn-primary' %>
 </div>
 <table class="table table-striped">
   <thead>
@@ -28,7 +31,4 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_pollen_image_path,
-            :class => 'btn btn-primary' %>
+<%= will_paginate @pollen_images %>

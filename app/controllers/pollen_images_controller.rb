@@ -5,6 +5,7 @@ class PollenImagesController < ApplicationController
   # GET /pollen_images.json
   def index
     @pollen_images = PollenImage.all
+    @pollen_images = PollenImage.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /pollen_images/1

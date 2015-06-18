@@ -26,6 +26,8 @@ gem "twitter-bootstrap-rails"
 gem "paperclip", "~> 4.2"
 # dropbox for paperclip storage
 gem "paperclip-dropbox", ">= 1.1.7"
+# handle multiple pages for index results
+gem 'will_paginate', '~> 3.0.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
