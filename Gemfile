@@ -28,6 +28,8 @@ gem "paperclip", "~> 4.2"
 gem "paperclip-dropbox", ">= 1.1.7"
 # handle multiple pages for index results
 gem 'will_paginate', '~> 3.0.6'
+# handle user login via username and password
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

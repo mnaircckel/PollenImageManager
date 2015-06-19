@@ -6,8 +6,14 @@
   <%= nav_bar static: :top, brand: "Image Database" do %>
     <%= menu_group do %>
         <%= menu_item "Home", root_path %>
+        <%= menu_item "Log In", user_session_path %>
+        <%= menu_item "Log Out", destroy_user_session_path %>
     <% end %>
   <% end %>
+  <mark>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+  </mark>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
