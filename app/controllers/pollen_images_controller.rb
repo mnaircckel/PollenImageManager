@@ -1,4 +1,5 @@
 class PollenImagesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_pollen_image, only: [:show, :edit, :update, :destroy]
 
   # GET /pollen_images
