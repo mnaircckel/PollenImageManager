@@ -23,12 +23,29 @@
     </div>
     <%= error_span(@pollen_image[:title]) %>
   </div>
+  
   <div class="control-group">
-    <%= f.label :tags, :class => 'control-label' %>
+    <%= f.label :latin_name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :tags, :class => 'form-control' %>
+      <%= f.text_field :latin_name, :class => 'form-control' %>
     </div>
-    <%= error_span(@pollen_image[:tags]) %>
+    <%= error_span(@pollen_image[:latin_name]) %>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :family, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :family, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:family]) %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :common_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :common_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:common_name]) %>
   </div>
   
   <%= f.submit nil, :class => 'btn btn-primary' %>

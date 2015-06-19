@@ -8,16 +8,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:tags) %></th>
+      <th><%= model_class.human_attribute_name(:title).titleize %></th>
+      <th><%= model_class.human_attribute_name(:latin_name).titleize %></th>
+      <th><%= model_class.human_attribute_name(:family).titleize %></th>
+      <th><%= model_class.human_attribute_name(:common_name).titleize %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @pollen_images.each do |pollen_image| %>
       <tr>
-        <td><%= image_tag pollen_image.image(:thumb) %><%= t " " + pollen_image.title %></td>
-        <td><%= pollen_image.tags %></td>
+        <td><%= image_tag pollen_image.image(:thumb) %><%= t " " + pollen_image.title.to_s %></td>
+        <td><%= t " " + pollen_image.latin_name.to_s %></td>
+        <td><%= t " " + pollen_image.family.to_s %></td>
+        <td><%= t " " + pollen_image.common_name.to_s %></td>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
                       pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
