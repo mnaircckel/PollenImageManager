@@ -5,7 +5,7 @@ class PollenImagesController < ApplicationController
   # GET /pollen_images
   # GET /pollen_images.json
   def index
-    @pollen_images = PollenImage.all
+    @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:title)
     if params[:commit] == "Search"
       if params[:title] != ""
         @pollen_images = @pollen_images.where("upper(title) = ? ", "#{params[:title].upcase}")
