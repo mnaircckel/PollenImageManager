@@ -6,7 +6,21 @@ class PollenImagesController < ApplicationController
   # GET /pollen_images.json
   def index
     @pollen_images = PollenImage.all
-    @pollen_images = PollenImage.paginate(:page => params[:page], :per_page => 10)
+    if params[:commit] == "Search"
+      if params[:title] != ""
+        @pollen_images = @pollen_images.where("upper(title) = ? ", "#{params[:title].upcase}")
+      end
+      if params[:latin_name] != ""
+        @pollen_images = @pollen_images.where("upper(latin_name) = ? ", "#{params[:latin_name].upcase}")
+      end
+      if params[:family] != ""
+        @pollen_images = @pollen_images.where("upper(family) = ? ", "#{params[:family].upcase}")
+      end
+      if params[:common_name] != ""
+        @pollen_images = @pollen_images.where("upper(common_name) = ? ", "#{params[:common_name].upcase}")
+      end
+    end
+    @pollen_images = @pollen_images.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /pollen_images/1

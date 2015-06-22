@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'search/simple'
+
+  get 'search/advanced'
+
   devise_for :users
   resources :pollen_images
   # The priority is based upon order of creation: first created -> highest priority.

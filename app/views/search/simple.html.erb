@@ -1,0 +1,39 @@
+<h2>Search Pollen Images</h2> 
+<br>
+<%= form_tag pollen_images_path, method: :get do %>
+
+  <div class="control-group">  
+    <%= label_tag(:title, "Title:") %>
+    <div class="controls">
+      <%= text_field_tag :title, params[:title] %>
+    </div>
+  </div>
+  <br>
+  
+  <div class="control-group">
+    <%= label_tag(:latin_name, "Latin Name:") %>
+    <div class="controls">
+      <%= text_field_tag :latin_name, params[:latin_name] %>
+    </div>
+  </div>
+  <br>
+  
+  <div class="control-group">
+    <%= label_tag(:family, "Family:") %>
+    <div class="controls">
+      <%= text_field_tag :family, params[:family] %>
+    </div>
+  </div>
+  <br>
+
+  <div class="control-group">  
+    <%= label_tag(:common_name, "Common Name:") %>
+    <div class="controls">
+      <%= text_field_tag :common_name, params[:common_name] %>
+    </div>
+  </div>
+
+  <br>
+  <%= submit_tag "Search" %>
+
+<% end %>
