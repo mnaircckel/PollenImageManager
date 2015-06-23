@@ -5,7 +5,10 @@ class PollenImagesController < ApplicationController
   # GET /pollen_images
   # GET /pollen_images.json
   def index
+    # Order pollen images
     @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:title)
+    
+    #Search query based on searc/simple.html.erb form which passes params[] and redirects to index
     if params[:commit] == "Search"
       if params[:title] != ""
         @pollen_images = @pollen_images.where("upper(title) = ? ", "#{params[:title].upcase}")
@@ -20,12 +23,27 @@ class PollenImagesController < ApplicationController
         @pollen_images = @pollen_images.where("upper(common_name) = ? ", "#{params[:common_name].upcase}")
       end
     end
+    
+    # Create a list of IDs for ordering so you can traverse images by clicking next and previous
+    session[:ids] = []
+    for pollen in @pollen_images do
+      session[:ids].push(pollen.id)
+    end
+    
+    # Paginate the images
     @pollen_images = @pollen_images.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /pollen_images/1
   # GET /pollen_images/1.json
   def show
+    # Index the current image ID based on the ordering, and find the ID for the next and previous image
+    if session[:ids] # Make sure there is a session of IDS (Generated from index)
+      session[:position] = session[:ids].index(@pollen_image.id)
+      session[:next] = session[:ids][session[:position]+1] || session[:ids].first
+      session[:prev] = session[:ids][session[:position]-1] || session[:ids].last
+    end
+    
   end
 
   # GET /pollen_images/new
