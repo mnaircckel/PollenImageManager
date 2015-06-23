@@ -40,8 +40,10 @@ class PollenImagesController < ApplicationController
     # Index the current image ID based on the ordering, and find the ID for the next and previous image
     if session[:ids] # Make sure there is a session of IDS (Generated from index)
       session[:position] = session[:ids].index(@pollen_image.id)
-      session[:next] = session[:ids][session[:position]+1] || session[:ids].first
-      session[:prev] = session[:ids][session[:position]-1] || session[:ids].last
+      if session[:position]
+        session[:next] = session[:ids][session[:position]+1] || session[:ids].first
+        session[:prev] = session[:ids][session[:position]-1] || session[:ids].last
+      end
     end
     
   end

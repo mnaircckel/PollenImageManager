@@ -1,7 +1,7 @@
 <%- model_class = PollenImage -%>
 <div class="page-header">
   <h1><%=t '.title', :default => @pollen_image.title %>
-  <% if session[:ids] %>
+  <% if session[:position] %>
     <br>
     <%= link_to t('.previous', :default => t("helpers.links.previous")),
               pollen_image_path(session[:prev]), :class => 'btn btn-default'  %>
