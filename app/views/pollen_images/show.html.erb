@@ -11,7 +11,7 @@
   <h5><strong><%= model_class.human_attribute_name(:common_name) %>:</strong><%= " " + @pollen_image.common_name.to_s %></h5>
 </h5>
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              pollen_images_path, :class => 'btn btn-default'  %>
+              :back, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_pollen_image_path(@pollen_image), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
