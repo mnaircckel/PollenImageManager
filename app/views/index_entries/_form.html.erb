@@ -1,0 +1,45 @@
+<%= form_for @index_entry, :html => { :class => "form-horizontal index_entry" } do |f| %>
+
+    <% if @index_entry.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@index_entry.errors.count, "error") %> prohibited this index_entry from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @index_entry.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :latin_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :latin_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@index_entry[:latin_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :family, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :family, :class => 'form-control' %>
+    </div>
+    <%= error_span(@index_entry[:family]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :common_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :common_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@index_entry[:common_name]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            index_entries_path, :class => 'btn btn-default' %>
+
+<% end %>

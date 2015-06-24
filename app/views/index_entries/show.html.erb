@@ -1,0 +1,23 @@
+<%- model_class = IndexEntry -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:latin_name).titleize %>:</strong></dt>
+  <dd><%= @index_entry.latin_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:family).titleize %>:</strong></dt>
+  <dd><%= @index_entry.family %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:common_name).titleize %>:</strong></dt>
+  <dd><%= @index_entry.common_name %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              index_entries_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_index_entry_path(@index_entry), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              index_entry_path(@index_entry),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-default' %>

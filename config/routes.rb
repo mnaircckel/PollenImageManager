@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :index_entries
   get 'search/simple'
 
   get 'search/advanced'
