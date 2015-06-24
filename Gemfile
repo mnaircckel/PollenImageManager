@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
@@ -29,6 +28,10 @@ gem "paperclip-dropbox", ">= 1.1.7"
 gem 'will_paginate', '~> 3.0.6'
 # handle user login via username and password
 gem 'devise'
+# Use pg as the database for Active Record
+gem 'pg'
+# puma for multiple faster production speed
+gem "puma"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -38,15 +41,13 @@ gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-# Use postgreSQL on Heroku
+  
 group :production, :staging do
-  gem "pg"
+
 end
 
 group :development, :test do
-  # Use pg as the database for Active Record
-  gem 'pg'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
