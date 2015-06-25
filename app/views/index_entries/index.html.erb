@@ -1,12 +1,15 @@
 <%- model_class = IndexEntry -%>
 <div class="page-header">
-  <h3><%=t 'Pollen Index in Alphabetical Order' %></h3>
+  <h3><%=t 'Pollen Image Index in Alphabetical Order' %></h3>
   <% if user_signed_in? %>
   <%= link_to t('.new_entry', :default => t("helpers.links.new_entry")),
             new_index_entry_path,
             :class => 'btn btn-default btn-xs' %>
   <% end %>
 </div>
+<font face="verdana" color="green"><%= 'You may click on the Latin Name to view pollen images in that category.' %></font>
+<br>
+<br>
 <table class="table">
   <thead>
     <tr>
@@ -21,9 +24,9 @@
   <tbody>
     <% @index_entries.each do |index_entry| %>
       <tr>
-        <td><%= link_to index_entry.latin_name, pollen_images_path %></td>
-        <td><%= link_to index_entry.family, pollen_images_path %></td>
-        <td><%= link_to index_entry.common_name, pollen_images_path %></td>
+        <td><%= link_to index_entry.latin_name, index_entry_path(index_entry) %></td>
+        <td><%= link_to index_entry.family, index_entry_path(index_entry)%></td>
+        <td><%= link_to index_entry.common_name, index_entry_path(index_entry)%></td>
         <% if user_signed_in? %>
           <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

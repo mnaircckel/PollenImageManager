@@ -11,6 +11,19 @@ class IndexEntriesController < ApplicationController
   # GET /index_entries/1
   # GET /index_entries/1.json
   def show
+    @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:title)
+    @selected_images = @pollen_images.select{|pollen| pollen.latin_name.upcase == @index_entry.latin_name.upcase}
+    if @selected_images and @selected_images != []
+      session[:ids] = []
+      for pollen in @selected_images do
+        session[:ids].push(pollen.id)
+      end
+      @pollen_image_id = @selected_images.first.id
+      redirect_to pollen_image_path(@pollen_image_id)
+    else
+      flash[:notice] = "No entries found!"
+      redirect_to index_entries_path
+    end
   end
 
   # GET /index_entries/new
