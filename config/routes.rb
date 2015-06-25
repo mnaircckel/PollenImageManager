@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :index_entries
-  get 'search/simple'
+  get 'welcome/homepage'
 
+  resources :index_entries
+  
+  get 'search/simple'
   get 'search/advanced'
 
   devise_for :users

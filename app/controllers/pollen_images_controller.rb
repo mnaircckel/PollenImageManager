@@ -10,16 +10,16 @@ class PollenImagesController < ApplicationController
     
     #Search query based on searc/simple.html.erb form which passes params[] and redirects to index
     if params[:commit] == "Search"
-      if params[:title] != ""
+      if params[:title] and params[:title] != "" 
         @pollen_images = @pollen_images.where("upper(title) = ? ", "#{params[:title].upcase}")
       end
-      if params[:latin_name] != ""
+      if params[:latin_name] and params[:latin_name] != ""
         @pollen_images = @pollen_images.where("upper(latin_name) = ? ", "#{params[:latin_name].upcase}")
       end
-      if params[:family] != ""
+      if params[:family] and params[:family] != ""
         @pollen_images = @pollen_images.where("upper(family) = ? ", "#{params[:family].upcase}")
       end
-      if params[:common_name] != ""
+      if params[:common_name] and params[:common_name] != ""
         @pollen_images = @pollen_images.where("upper(common_name) = ? ", "#{params[:common_name].upcase}")
       end
     end

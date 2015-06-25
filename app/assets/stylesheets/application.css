@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.table th, .table td { 
+     border-top: none !important; 
+ }

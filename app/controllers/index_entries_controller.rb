@@ -5,7 +5,7 @@ class IndexEntriesController < ApplicationController
   # GET /index_entries
   # GET /index_entries.json
   def index
-    @index_entries = IndexEntry.all
+    @index_entries = IndexEntry.all.order(:latin_name,:family,:common_name)
   end
 
   # GET /index_entries/1
