@@ -1,3 +1,14 @@
+<style>
+a:link {
+    color: #1975FF;
+}
+a:visited {
+    color: #19A3FF;
+}
+a:active {
+    color: #19A3FF;
+}
+</style>
 <%- model_class = IndexEntry -%>
 <div class="page-header">
   <h3><%=t 'Pollen Image Index in Alphabetical Order' %></h3>
@@ -7,7 +18,7 @@
             :class => 'btn btn-default btn-xs' %>
   <% end %>
 </div>
-<font face="verdana" color="green"><%= 'You may click on the Latin Name to view pollen images in that category.' %></font>
+<font face="verdana" color="green"><%= 'You may click on the Latin name to view pollen images of that category.' %></font>
 <br>
 <br>
 <table class="table">
@@ -25,8 +36,8 @@
     <% @index_entries.each do |index_entry| %>
       <tr>
         <td><%= link_to index_entry.latin_name, index_entry_path(index_entry) %></td>
-        <td><%= link_to index_entry.family, index_entry_path(index_entry)%></td>
-        <td><%= link_to index_entry.common_name, index_entry_path(index_entry)%></td>
+        <td><%=t index_entry.family %></td>
+        <td><%=t index_entry.common_name %></td>
         <% if user_signed_in? %>
           <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
