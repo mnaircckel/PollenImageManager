@@ -35,9 +35,9 @@ a:active {
   <tbody>
     <% @index_entries.each do |index_entry| %>
       <tr>
-        <td><%= link_to index_entry.latin_name, index_entry_path(index_entry) %></td>
-        <td><%=t index_entry.family %></td>
-        <td><%=t index_entry.common_name %></td>
+        <td><%= link_to index_entry.latin_name.to_s, index_entry_path(index_entry) %></td>
+        <td><%= t " " + index_entry.family.to_s %></td>
+        <td><%= t " " + index_entry.common_name.to_s %></td>
         <% if user_signed_in? %>
           <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
