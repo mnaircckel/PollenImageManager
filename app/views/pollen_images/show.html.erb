@@ -1,7 +1,7 @@
 <%- model_class = PollenImage -%>
 <div class="page-header">
   <h1><%=t '.title', :default => @pollen_image.title %>
-  <% if session[:position] %>
+  <% if session[:position] and session[:ids] and session[:ids].length > 1 %>
     <br>
     <%= link_to t('.previous', :default => t("helpers.links.previous")),
               pollen_image_path(session[:prev]), :class => 'btn btn-default'  %>
@@ -20,12 +20,14 @@
 </h5>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               :back, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_pollen_image_path(@pollen_image), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              pollen_image_path(@pollen_image),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-default' %>
+<% if user_signed_in? %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_pollen_image_path(@pollen_image), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                pollen_image_path(@pollen_image),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-default' %>
+<% end %>
 <%= link_to t('.full_size', :default => t("helpers.links.full_size")),
               "#{URI.join(@pollen_image.image.url)}", :class => 'btn btn-default' %>

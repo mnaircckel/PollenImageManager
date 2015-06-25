@@ -22,6 +22,10 @@ class PollenImagesController < ApplicationController
       if params[:common_name] and params[:common_name] != ""
         @pollen_images = @pollen_images.where("upper(common_name) = ? ", "#{params[:common_name].upcase}")
       end
+      if @pollen_images.empty?
+        flash[:notice] = "No search results found. Please try again."
+        redirect_to search_simple_path
+      end
     end
     
     # Create a list of IDs for ordering so you can traverse images by clicking next and previous
