@@ -3,9 +3,9 @@
 <head>
   <title>Image Manager</title>
   <!-- Controls the links on the navigation bar on the top ov everypage -->
-  <%= nav_bar static: :top, brand: "Image Database" do %>
+  <%= nav_bar static: :top, brand: "Home", :brand_link => welcome_homepage_path do %>
     <%= menu_group do %>
-        <%= menu_item "About", welcome_homepage_path %>
+        <%= menu_item "Image Database", pollen_images_path %>
         <%= menu_item "Index", index_entries_path %>
         <%= menu_item "Search", search_simple_path %>
         <%= menu_item "Log In", user_session_path %>
