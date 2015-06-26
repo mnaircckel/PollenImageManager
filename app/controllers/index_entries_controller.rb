@@ -11,6 +11,11 @@ class IndexEntriesController < ApplicationController
   # GET /index_entries/1
   # GET /index_entries/1.json
   def show
+    # The show method for the index is used to direct the user to the first pollen image
+    # This is done by first sorting the Pollen Images by Latin Name
+    # Then the pollen image's latin name is checked against the index's latin name
+    # Finally a session is generated (See pollen_images_controller.rb for more info) so the user can browse multiple images
+    # and the usser is redirected to the first pollen image in the list (if one exists)
     @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:title)
     @selected_images = @pollen_images.select{|pollen| pollen.latin_name.upcase == @index_entry.latin_name.upcase}
     if @selected_images and @selected_images != []
