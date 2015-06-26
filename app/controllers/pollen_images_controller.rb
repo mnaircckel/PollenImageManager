@@ -8,7 +8,8 @@ class PollenImagesController < ApplicationController
     # Order pollen images
     @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:title)
     
-    #Search query based on searc/simple.html.erb form which passes params[] and redirects to index
+    #Search query based on search/simple.html.erb form which passes params[] and redirects to index with params in URL
+    #Params[] are matched with pollen_image attributes
     if params[:commit] == "Search"
       if params[:title] and params[:title] != "" 
         @pollen_images = @pollen_images.where("upper(title) = ? ", "#{params[:title].upcase}")
@@ -22,6 +23,7 @@ class PollenImagesController < ApplicationController
       if params[:common_name] and params[:common_name] != ""
         @pollen_images = @pollen_images.where("upper(common_name) = ? ", "#{params[:common_name].upcase}")
       end
+      #If pollen images is empty, redirect to search page and inform the user no results were found.
       if @pollen_images.empty?
         flash[:notice] = "No search results found. Please try again."
         redirect_to search_simple_path
@@ -29,6 +31,8 @@ class PollenImagesController < ApplicationController
     end
     
     # Create a list of IDs for ordering so you can traverse images by clicking next and previous
+    # The session is the list of all ordered IDs of pollen images
+    # Useful because you can call pollen_image_path(id) to go to a image
     session[:ids] = []
     for pollen in @pollen_images do
       session[:ids].push(pollen.id)
@@ -42,7 +46,7 @@ class PollenImagesController < ApplicationController
   # GET /pollen_images/1.json
   def show
     # Index the current image ID based on the ordering, and find the ID for the next and previous image
-    if session[:ids] # Make sure there is a session of IDS (Generated from index)
+    if session[:ids] # Make sure there is a session of IDs (Generated from index)
       session[:position] = session[:ids].index(@pollen_image.id)
       if session[:position]
         session[:next] = session[:ids][session[:position]+1] || session[:ids].first

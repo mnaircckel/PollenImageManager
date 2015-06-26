@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Image Manager</title>
-  
+  <!-- Controls the links on the navigation bar on the top ov everypage -->
   <%= nav_bar static: :top, brand: "Image Database" do %>
     <%= menu_group do %>
         <%= menu_item "About", welcome_homepage_path %>
@@ -13,6 +13,7 @@
     <% end %>
   <% end %>
   <mark>
+  <!-- Displays alerts and notices below navigation bar -->
   <%= flash[:notice] %>
   <%= flash[:alert] %>
   </mark>
