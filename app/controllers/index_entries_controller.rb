@@ -47,7 +47,7 @@ class IndexEntriesController < ApplicationController
 
     respond_to do |format|
       if @index_entry.save
-        format.html { redirect_to @index_entry, notice: 'Index entry was successfully created.' }
+        format.html { redirect_to index_entries_url, notice: 'Index entry was successfully created.' }
         format.json { render :show, status: :created, location: @index_entry }
       else
         format.html { render :new }
@@ -61,7 +61,7 @@ class IndexEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @index_entry.update(index_entry_params)
-        format.html { redirect_to @index_entry, notice: 'Index entry was successfully updated.' }
+        format.html { redirect_to index_entries_url, notice: 'Index entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @index_entry }
       else
         format.html { render :edit }
