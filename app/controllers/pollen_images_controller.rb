@@ -11,6 +11,11 @@ class PollenImagesController < ApplicationController
     #Search query based on search/simple.html.erb form which passes params[] and redirects to index with params in URL
     #Params[] are matched with pollen_image attributes
     if params[:commit] == "Search"
+      # Redirect the user to the search path if all the fields are blank
+      if params[:title] == "" and params[:latin_name] == "" and params[:family] == "" and params[:common_name] == ""
+        flash[:notice] = "All fields were empty. Please try again."
+        redirect_to search_simple_path
+      end
       if params[:title] and params[:title] != "" 
         @pollen_images = @pollen_images.where("upper(title) = ? ", "#{params[:title].upcase}")
       end
