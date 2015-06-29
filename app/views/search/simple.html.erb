@@ -1,17 +1,10 @@
 <%= link_to "Back to Image Database", pollen_images_path %>
-<h2>Taxonomic Pollen Image Search</h2> 
+<%= link_to "Switch to Geographical Search", search_advanced_path %>
+<h2>Taxonomic Search</h2> 
 <br>
 <!-- Each text_field_tag is sent to params[] on submition-->
 <!-- This can be seen in the URL after a search. Check pollen_images_controller.erb for sorting logic. -->
 <%= form_tag pollen_images_path, method: :get do %>
-
-  <div class="control-group">  
-    <%= label_tag(:title, "Title:") %>
-    <div class="controls">
-      <%= text_field_tag :title, params[:title] %>
-    </div>
-  </div>
-  <br>
   
   <div class="control-group">
     <%= label_tag(:latin_name, "Latin Name:") %>

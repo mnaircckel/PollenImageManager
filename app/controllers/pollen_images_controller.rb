@@ -12,12 +12,9 @@ class PollenImagesController < ApplicationController
     #Params[] are matched with pollen_image attributes
     if params[:commit] == "Search"
       # Redirect the user to the search path if all the fields are blank
-      if params[:title] == "" and params[:latin_name] == "" and params[:family] == "" and params[:common_name] == ""
+      if params[:latin_name] == "" and params[:family] == "" and params[:common_name] == ""
         flash[:notice] = "All fields were empty. Please try again."
         redirect_to search_simple_path
-      end
-      if params[:title] and params[:title] != "" 
-        @pollen_images = @pollen_images.where("upper(title) = ? ", "#{params[:title].upcase}")
       end
       if params[:latin_name] and params[:latin_name] != ""
         @pollen_images = @pollen_images.where("upper(latin_name) = ? ", "#{params[:latin_name].upcase}")
