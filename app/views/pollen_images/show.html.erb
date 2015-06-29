@@ -17,6 +17,10 @@
   <h5><strong><%= model_class.human_attribute_name(:latin_name).titleize %>:</strong><%= " " + @pollen_image.latin_name.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:family).titleize %>:</strong><%= " " + @pollen_image.family.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:common_name).titleize %>:</strong><%= " " + @pollen_image.common_name.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:location).titleize %>:</strong><%= " " + @pollen_image.location.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:region).titleize %>:</strong><%= " " + @pollen_image.region.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:age).titleize %>:</strong><%= " " + @pollen_image.age.to_s %></h5>
+  
 </h5>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               :back, :class => 'btn btn-default'  %>
