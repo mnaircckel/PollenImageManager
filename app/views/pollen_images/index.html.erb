@@ -21,13 +21,13 @@
   <tbody>
     <% @pollen_images.each do |pollen_image| %>
       <tr>
-        <td><%= image_tag pollen_image.image(:thumb) %><%= t " " + pollen_image.title.to_s %></td>
-        <td><%= t " " + pollen_image.latin_name.to_s %></td>
-        <td><%= t " " + pollen_image.family.to_s %></td>
-        <td><%= t " " + pollen_image.common_name.to_s %></td>
-        <td><%= t " " + pollen_image.location.to_s %></td>
-        <td><%= t " " + pollen_image.region.to_s %></td>
-        <td><%= t " " + pollen_image.age.to_s %></td>
+        <td><%= image_tag pollen_image.image(:thumb) %><%= " " + pollen_image.title.to_s %></td>
+        <td><i><%= " " + pollen_image.latin_name.to_s %></i></td>
+        <td><%= " " + pollen_image.family.to_s %></td>
+        <td><%= " " + pollen_image.common_name.to_s %></td>
+        <td><%= " " + pollen_image.location.to_s %></td>
+        <td><%= " " + pollen_image.region.to_s %></td>
+        <td><%= " " + pollen_image.age.to_s %></td>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
                       pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
