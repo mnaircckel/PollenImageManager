@@ -8,14 +8,20 @@ class PollenImagesController < ApplicationController
     # Order pollen images
     @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:title)
     
-    #Search query based on search/simple.html.erb form which passes params[] and redirects to index with params in URL
+    #Search query based on search/simple.html.erb or search/advanced/html.erb 
+    #Form passes params[] and redirects to index with params in URL
     #Params[] are matched with pollen_image attributes
     if params[:commit] == "Search"
       # Redirect the user to the search path if all the fields are blank
       if params[:latin_name] == "" and params[:family] == "" and params[:common_name] == ""
         flash[:notice] = "All fields were empty. Please try again."
         redirect_to search_simple_path
+      elsif params[:region] == "" and params[:age] == "" and params[:location] == ""
+        flash[:notice] = "All fields were empty. Please try again."
+        redirect_to advanced_simple_path
       end
+      
+      # Simple search options
       if params[:latin_name] and params[:latin_name] != ""
         @pollen_images = @pollen_images.where("upper(latin_name) = ? ", "#{params[:latin_name].upcase}")
       end
@@ -25,6 +31,22 @@ class PollenImagesController < ApplicationController
       if params[:common_name] and params[:common_name] != ""
         @pollen_images = @pollen_images.where("upper(common_name) = ? ", "#{params[:common_name].upcase}")
       end
+      
+      # Advanced search options
+      if params[:location] and params[:location] != ""
+        @pollen_images = @pollen_images.where("upper(location) = ? ", "#{params[:location].upcase}")
+      end
+      if params[:region] and params[:region] != ""
+        @pollen_images = @pollen_images.where("upper(region) = ? ", "#{params[:region].upcase}")
+      end
+      if params[:age] and params[:age] != ""
+        if params[:age] == "Holocene"
+          @pollen_images = @pollen_images.where("age <= 11700 ")
+        elsif params[:age] == "Pleistocene"
+          @pollen_images = @pollen_images.where("age > 11700 ")
+        end
+      end
+      
       #If pollen images is empty, redirect to search page and inform the user no results were found.
       if @pollen_images.empty?
         flash[:notice] = "No search results found. Please try again."

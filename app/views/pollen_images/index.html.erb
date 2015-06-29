@@ -12,6 +12,9 @@
       <th><%= model_class.human_attribute_name(:latin_name).titleize %></th>
       <th><%= model_class.human_attribute_name(:family).titleize %></th>
       <th><%= model_class.human_attribute_name(:common_name).titleize %></th>
+      <th><%= model_class.human_attribute_name(:location).titleize %></th>
+      <th><%= model_class.human_attribute_name(:region).titleize %></th>
+      <th><%= model_class.human_attribute_name(:age).titleize %></th>
       <th><%=t '.details', :default => t("helpers.details") %></th>
     </tr>
   </thead>
@@ -22,6 +25,9 @@
         <td><%= t " " + pollen_image.latin_name.to_s %></td>
         <td><%= t " " + pollen_image.family.to_s %></td>
         <td><%= t " " + pollen_image.common_name.to_s %></td>
+        <td><%= t " " + pollen_image.location.to_s %></td>
+        <td><%= t " " + pollen_image.region.to_s %></td>
+        <td><%= t " " + pollen_image.age.to_s %></td>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
                       pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
