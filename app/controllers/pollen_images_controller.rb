@@ -18,7 +18,7 @@ class PollenImagesController < ApplicationController
         redirect_to search_simple_path
       elsif params[:region] == "" and params[:age] == "" and params[:location] == ""
         flash[:notice] = "All fields were empty. Please try again."
-        redirect_to advanced_simple_path
+        redirect_to search_advanced_path
       end
       
       # Simple search options
