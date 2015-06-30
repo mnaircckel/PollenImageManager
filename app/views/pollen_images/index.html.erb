@@ -14,7 +14,7 @@
       <th><%= model_class.human_attribute_name(:common_name).titleize %></th>
       <th><%= model_class.human_attribute_name(:location).titleize %></th>
       <th><%= model_class.human_attribute_name(:region).titleize %></th>
-      <th><%= model_class.human_attribute_name(:age).titleize %></th>
+      <th><%= model_class.human_attribute_name(:age).titleize + " (cal BP)" %></th>
       <th><%=t '.details', :default => t("helpers.details") %></th>
     </tr>
   </thead>
