@@ -50,7 +50,7 @@ class PollenImagesController < ApplicationController
       #If pollen images is empty, redirect to search page and inform the user no results were found.
       if @pollen_images.empty?
         flash[:notice] = "No search results found. Please try again."
-        redirect_to search_simple_path
+        redirect_to :back
       end
     end
     
