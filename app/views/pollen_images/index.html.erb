@@ -1,9 +1,25 @@
 <%- model_class = PollenImage -%>
+<style>
+a:link {
+    color: #0000B2;
+}
+a:visited {
+    color: #0000B2;
+}
+a:active {
+    color: #0000B2;
+}
+a:hover {
+    background-color: transparent;
+}
+</style>
 <div class="page-header">
   <h2><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
+  <% if user_signed_in? %>
   <%= link_to t('.add_image', :default => t("helpers.links.add_image")),
             new_pollen_image_path,
             :class => 'btn btn-primary' %>
+  <% end %>
 </div>
 <table class="table table-striped">
   <thead>

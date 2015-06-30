@@ -1,15 +1,20 @@
 <%- model_class = IndexEntry -%>
 <style>
 a:link {
-    color: #5D71E1;
+    color: #0000B2;
 }
 a:visited {
-    color: #5D71E1;
+    color: #0000B2;
 }
 a:active {
-    color: #5D71E1;
+    color: #0000B2;
+}
+a:hover {
+    background-color: transparent;
 }
 </style>
+
+<div class="container">
 <div class="page-header">
   <h3><%=t 'Pollen Image Index in Alphabetical Order' %></h3>
   <% if user_signed_in? %>
@@ -18,7 +23,7 @@ a:active {
             :class => 'btn btn-default btn-xs' %>
   <% end %>
 </div>
-<font face="verdana" color="green"><%= 'You may click on the Latin name to view pollen images of that category.' %></font>
+<font face="verdana" color="#0000B2"><%= 'Click on the Latin name to view pollen images of that species.' %></font>
 <br>
 <br>
 <table class="table">
