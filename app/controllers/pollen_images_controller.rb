@@ -1,6 +1,13 @@
 class PollenImagesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_pollen_image, only: [:show, :edit, :update, :destroy]
+  
+  
+  #Search REGEX helper function
+  #Matches field with a regexp for whole words
+  def search_pollen_images(field)
+    @pollen_images.where("upper(#{field}) ~* ? ", "[[:<:]]#{Regexp.escape(params[field.to_sym].upcase)}[[:>:]]")
+  end
 
   # GET /pollen_images
   # GET /pollen_images.json
@@ -23,21 +30,21 @@ class PollenImagesController < ApplicationController
       
       # Simple search options
       if params[:latin_name] and params[:latin_name] != ""
-        @pollen_images = @pollen_images.where("upper(latin_name) = ? ", "#{params[:latin_name].upcase}")
+        @pollen_images = search_pollen_images("latin_name")
       end
       if params[:family] and params[:family] != ""
-        @pollen_images = @pollen_images.where("upper(family) = ? ", "#{params[:family].upcase}")
+        @pollen_images = search_pollen_images("family")
       end
       if params[:common_name] and params[:common_name] != ""
-        @pollen_images = @pollen_images.where("upper(common_name) = ? ", "#{params[:common_name].upcase}")
+        @pollen_images = search_pollen_images("common_name")
       end
       
       # Advanced search options
       if params[:location] and params[:location] != ""
-        @pollen_images = @pollen_images.where("upper(location) = ? ", "#{params[:location].upcase}")
+        @pollen_images = search_pollen_images("location")
       end
       if params[:region] and params[:region] != ""
-        @pollen_images = @pollen_images.where("upper(region) = ? ", "#{params[:region].upcase}")
+        @pollen_images = search_pollen_images("region")
       end
       if params[:age] and params[:age] != ""
         if params[:age] == "Holocene"
@@ -137,6 +144,6 @@ class PollenImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pollen_image_params
-      params.require(:pollen_image).permit(:title,:image,:latin_name,:family,:common_name,:region,:age,:location)
+      params.require(:pollen_image).permit(:title,:image,:latin_name,:family,:common_name,:region,:age,:location,:notes)
     end
 end

@@ -1,6 +1,6 @@
 <%- model_class = PollenImage -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => @pollen_image.title %>
+  <h1><%=t '.title', :default => @pollen_image.latin_name %>
   <% if session[:position] and session[:ids] and session[:ids].length > 1 %>
     <br>
     <%= link_to t('.previous', :default => t("helpers.links.previous")),
@@ -20,6 +20,7 @@
   <h5><strong><%= model_class.human_attribute_name(:location).titleize %>:</strong><%= " " + @pollen_image.location.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:region).titleize %>:</strong><%= " " + @pollen_image.region.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:age).titleize + " (cal BP)"%>:</strong><%= " " + @pollen_image.age.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:notes).titleize %>:</strong><%= " " + @pollen_image.notes.to_s %></h5>
   
 </h5>
 <%= link_to t('.back', :default => t("helpers.links.back")),
