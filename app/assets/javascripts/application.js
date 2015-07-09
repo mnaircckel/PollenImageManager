@@ -19,7 +19,7 @@ $(document).ready(function() {
     $(document).on("click", "a", function(){
         $(".modal").show();
     });
-    $(document).on("click", "a", function(){
+    $('form').submit(function() {
         $(".modal").show();
     });
 });
