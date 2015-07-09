@@ -3,15 +3,19 @@
   <h1><%=t '.title', :default => @pollen_image.latin_name %>
   <% if session[:position] and session[:ids] and session[:ids].length > 1 %>
     <br>
-    <%= link_to t('.previous', :default => t("helpers.links.previous")),
-              pollen_image_path(session[:prev]), :class => 'btn btn-default'  %>
-    <%= link_to t('.next', :default => t("helpers.links.next")),
-              pollen_image_path(session[:next]), :class => 'btn btn-default'  %>
+    <%= link_to t('.back_to_index', :default => t("helpers.links.back_to_index")),
+                index_entries_path, :class => 'btn btn-default'  %>
+    <%= link_to t('.view_full_size', :default => t("helpers.links.view_full_size")),
+                "#{URI.join(@pollen_image.image.url)}", :class => 'btn btn-default' %>
   <% end %>
   </h1>
   <%= image_tag @pollen_image.image(:medium) %>
 </div>
 
+<%= link_to t('.previous_image', :default => t("helpers.links.previous_image")),
+          pollen_image_path(session[:prev]), :class => 'btn btn-default'  %>
+<%= link_to t('.next_image', :default => t("helpers.links.next_image")),
+          pollen_image_path(session[:next]), :class => 'btn btn-default'  %>
 <h5 class="dl-horizontal">
   <h5><strong><%= model_class.human_attribute_name(:title).titleize %>:</strong><%= " " + @pollen_image.title.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:latin_name).titleize %>:</strong><i><%= " " + @pollen_image.latin_name.to_s %></i></h5>
@@ -23,8 +27,6 @@
   <h5><strong><%= model_class.human_attribute_name(:notes).titleize %>:</strong><%= " " + @pollen_image.notes.to_s %></h5>
   
 </h5>
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              :back, :class => 'btn btn-default'  %>
 <% if user_signed_in? %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_pollen_image_path(@pollen_image), :class => 'btn btn-default' %>
@@ -34,5 +36,3 @@
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                 :class => 'btn btn-default' %>
 <% end %>
-<%= link_to t('.full_size', :default => t("helpers.links.full_size")),
-              "#{URI.join(@pollen_image.image.url)}", :class => 'btn btn-default' %>
