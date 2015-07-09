@@ -60,7 +60,7 @@
   <div class="control-group">
     <%= f.label :region, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :region, options_for_select(REGION_HASH), include_blank: true %>
+      <%= f.select(:region, options_for_select(REGION_HASH, :selected => @pollen_image[:region]), {include_blank: true}) %>
     </div>
     <%= error_span(@pollen_image[:region]) %>
   </div>
