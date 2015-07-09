@@ -43,7 +43,7 @@ a:hover {
         <td><%= " " + pollen_image.common_name.to_s %></td>
         <td><%= " " + pollen_image.location.to_s %></td>
         <td><%= " " + pollen_image.region.to_s %></td>
-        <td><%= " " + pollen_image.age.to_s %></td>
+        <td><%= " " + number_with_delimiter(pollen_image.age, :delimiter => ',').to_s %></td>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
                       pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
