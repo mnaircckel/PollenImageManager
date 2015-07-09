@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for @index_entry, :html => { :class => "form-horizontal index_entry" } do |f| %>
 
     <% if @index_entry.errors.any? %>
@@ -43,3 +44,4 @@
             index_entries_path, :class => 'btn btn-default' %>
 
 <% end %>
+</div>

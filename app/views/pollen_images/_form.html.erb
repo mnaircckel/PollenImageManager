@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for @pollen_image, :html => { :class => "form-horizontal pollen_image", :multipart => true } do |f| %>
 
     <% if @pollen_image.errors.any? %>
@@ -85,3 +86,4 @@
             :back, :class => 'btn btn-default' %>
 
 <% end %>
+</div>
