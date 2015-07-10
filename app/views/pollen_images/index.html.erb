@@ -19,6 +19,7 @@ a:hover {
   <%= link_to t('.add_image', :default => t("helpers.links.add_image")),
             new_pollen_image_path,
             :class => 'btn btn-primary' %>
+  <h5><%= 'Click on the attributes of the pollen images to directly edit the database.' %></h5>
   <% end %>
 </div>
 <table class="table table-striped">
@@ -43,7 +44,11 @@ a:hover {
         <td><%= best_in_place_if user_signed_in?, pollen_image, :common_name %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :location %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :region, :as => :select, :collection => {" " => " "}.merge(REGION_HASH) %></td>
-        <td><%= best_in_place_if user_signed_in?, pollen_image, :age %></td>
+        <% if user_signed_in? %>
+          <td><%= best_in_place_if user_signed_in?, pollen_image, :age %></td>
+        <% else %>
+          <td><%= number_with_delimiter(pollen_image.age, :delimiter => ',') %></td>
+        <% end %>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
                       pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
