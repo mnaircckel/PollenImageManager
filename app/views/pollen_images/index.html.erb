@@ -43,7 +43,7 @@ a:hover {
         <td><%= best_in_place_if user_signed_in?, pollen_image, :common_name %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :location %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :region, :as => :select, :collection => {" " => " "}.merge(REGION_HASH) %></td>
-        <td><%= best_in_place_if user_signed_in?, pollen_image, :age, :display_as => :formatted_number %></td>
+        <td><%= best_in_place_if user_signed_in?, pollen_image, :age %></td>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
                       pollen_image_path(pollen_image), :class => 'btn btn-default btn-xs' %>
