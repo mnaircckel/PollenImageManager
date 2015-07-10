@@ -1,5 +1,5 @@
 #Constants
-REGION_HASH = {"California" => "California", "Northern Mexico" => "Northern Mexico"}
+REGION_HASH = {"California" => "California", "Central Mexico" => "Central Mexico", "Gulf of California" => "Gulf of California"}
 AGE_HASH = {"Holocene" => "Holocene", "Pleistocene" => "Pleistocene"}
 
 # Load the Rails application.
