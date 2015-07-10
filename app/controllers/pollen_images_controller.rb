@@ -118,10 +118,10 @@ class PollenImagesController < ApplicationController
     respond_to do |format|
       if @pollen_image.update(pollen_image_params)
         format.html { redirect_to @pollen_image, notice: 'Pollen image was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pollen_image }
+        format.json { respond_with_bip(@pollen_image) }
       else
         format.html { render :edit }
-        format.json { render json: @pollen_image.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@pollen_image) }
       end
     end
   end
