@@ -38,7 +38,7 @@ a:hover {
   <tbody>
     <% @pollen_images.each do |pollen_image| %>
       <tr>
-        <td><%= image_tag pollen_image.image(:thumb) %><%= " " + pollen_image.title.to_s %></td>
+        <td><%= link_to image_tag(pollen_image.image(:thumb)), pollen_image_path(pollen_image) %></a><%= " " + pollen_image.title.to_s %></td>
         <td><i><%= best_in_place_if user_signed_in?, pollen_image, :latin_name %></i></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :family %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :common_name %></td>
