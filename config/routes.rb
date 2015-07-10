@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'welcome/homepage'
 
   resources :index_entries
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
   get 'search/advanced'
 
   devise_for :users
-  resources :pollen_images
+  resources :pollen_images do
+    get "metadata"
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

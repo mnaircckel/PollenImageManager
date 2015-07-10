@@ -7,6 +7,8 @@
               index_entries_path, :class => 'btn btn-default'  %>
   <%= link_to t('.view_full_size', :default => t("helpers.links.view_full_size")),
               "#{URI.join(@pollen_image.image.url)}", :class => 'btn btn-default' %>
+  <%= link_to t('.view_metadata', :default => t("helpers.links.view_metadata")),
+              pollen_image_metadata_path(@pollen_image), :class => 'btn btn-default' %>
   </h1>
   <%= image_tag @pollen_image.image(:medium) %>
 </div>

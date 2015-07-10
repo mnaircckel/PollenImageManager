@@ -1,0 +1,17 @@
+<div class="container">
+<%- model_class = PollenImage -%>
+<div class="page-header">
+  <h1><%= @pollen_image.latin_name.to_s %>
+  <br>
+  <%= link_to t('.back_to_pollen_image', :default => t("helpers.links.back_to_pollen_image")),
+              pollen_image_path(@pollen_image), :class => 'btn btn-default'  %>
+  <br>
+  </h1>
+<h5 class="dl-horizontal">
+  <h2><%= " Metadata" %></h2>
+  
+</div>
+  <h5><strong><%= model_class.human_attribute_name(:title).titleize %>:</strong><%= " " + @pollen_image.title.to_s %></h5>
+  
+</h5>
+</div>

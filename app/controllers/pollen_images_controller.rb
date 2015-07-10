@@ -86,6 +86,10 @@ class PollenImagesController < ApplicationController
     end
     
   end
+  
+  def metadata
+    @pollen_image = PollenImage.find(params[:pollen_image_id] || params[:id])
+  end
 
   # GET /pollen_images/new
   def new
