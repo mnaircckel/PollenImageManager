@@ -25,29 +25,35 @@ a:hover {
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:title).titleize %></th>
-      <th><%= model_class.human_attribute_name(:latin_name).titleize %></th>
-      <th><%= model_class.human_attribute_name(:family).titleize %></th>
+      <th><%=t "Image" %></th>
+      <th><%=t "Scientific Name" %></th>
       <th><%= model_class.human_attribute_name(:common_name).titleize %></th>
-      <th><%= model_class.human_attribute_name(:location).titleize %></th>
-      <th><%= model_class.human_attribute_name(:region).titleize %></th>
-      <th><%= model_class.human_attribute_name(:age).titleize + " (cal BP)" %></th>
+      <th><%= model_class.human_attribute_name(:family).titleize %></th>
+      <th><%= model_class.human_attribute_name(:grain_number).titleize %></th>
+      <th><%= model_class.human_attribute_name(:focal_plane).titleize %></th>
+      <% if user_signed_in? %>
+        <th><%= model_class.human_attribute_name(:location).titleize %></th>
+        <th><%= model_class.human_attribute_name(:region).titleize %></th>
+        <th><%= model_class.human_attribute_name(:age).titleize + " (cal BP)" %></th>
+        <th><%= model_class.human_attribute_name(:depth).titleize + " (meters)" %></th>
+      <% end %>
       <th><%=t '.details', :default => t("helpers.details") %></th>
     </tr>
   </thead>
   <tbody>
     <% @pollen_images.each do |pollen_image| %>
       <tr>
-        <td><%= link_to image_tag(pollen_image.image(:thumb)), pollen_image_path(pollen_image) %></a><%= " " + pollen_image.title.to_s %></td>
+        <td><%= link_to image_tag(pollen_image.image(:thumb)), pollen_image_path(pollen_image) %><% if user_signed_in? %></a><%= " " + pollen_image.title.to_s %><% end %></td>
         <td><i><%= best_in_place_if user_signed_in?, pollen_image, :latin_name %></i></td>
-        <td><%= best_in_place_if user_signed_in?, pollen_image, :family %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :common_name %></td>
-        <td><%= best_in_place_if user_signed_in?, pollen_image, :location %></td>
-        <td><%= best_in_place_if user_signed_in?, pollen_image, :region, :as => :select, :collection => {" " => " "}.merge(REGION_HASH) %></td>
+        <td><%= best_in_place_if user_signed_in?, pollen_image, :family %></td>
+        <td><%= best_in_place_if user_signed_in?, pollen_image, :grain_number %></td>
+        <td><%= best_in_place_if user_signed_in?, pollen_image, :focal_plane %></td>
         <% if user_signed_in? %>
+          <td><%= best_in_place_if user_signed_in?, pollen_image, :location %></td>
+          <td><%= best_in_place_if user_signed_in?, pollen_image, :region, :as => :select, :collection => {" " => " "}.merge(REGION_HASH) %></td>
           <td><%= best_in_place_if user_signed_in?, pollen_image, :age %></td>
-        <% else %>
-          <td><%= number_with_delimiter(pollen_image.age, :delimiter => ',') %></td>
+          <td><%= best_in_place_if user_signed_in?, pollen_image, :depth %></td>
         <% end %>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),

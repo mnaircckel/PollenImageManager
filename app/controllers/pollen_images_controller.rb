@@ -13,7 +13,7 @@ class PollenImagesController < ApplicationController
   # GET /pollen_images.json
   def index
     # Order pollen images
-    @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:title)
+    @pollen_images = PollenImage.all.order(:latin_name,:family,:common_name,:grain_number,:focal_plane,:title)
     
     #Search query based on search/simple.html.erb or search/advanced/html.erb 
     #Form passes params[] and redirects to index with params in URL
@@ -148,6 +148,6 @@ class PollenImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pollen_image_params
-      params.require(:pollen_image).permit(:title,:image,:latin_name,:family,:common_name,:region,:age,:location,:notes,:collection,:collection_number,:collector,:place_of_origin)
+      params.require(:pollen_image).permit(:title,:image,:latin_name,:family,:common_name,:region,:age,:location,:notes,:collection,:collection_number,:collector,:place_of_origin,:depth,:grain_number,:focal_plane)
     end
 end

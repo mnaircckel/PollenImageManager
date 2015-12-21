@@ -72,6 +72,14 @@
     </div>
     <%= error_span(@pollen_image[:age]) %>
   </div>
+  
+    <div class="control-group">
+    <%= f.label :depth, "Depth (meters)", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :depth, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:depth]) %>
+  </div>
 
   <div class="control-group">
     <%= f.label :notes, :class => 'control-label' %>
@@ -82,7 +90,23 @@
   </div>
   
   <h3>Metadata</h3>
-
+  
+  <div class="control-group">
+    <%= f.label :grain_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :grain_number, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:grain_number]) %>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :focal_plane, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :focal_plane, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:focal_plane]) %>
+  </div>
+  
   <div class="control-group">
     <%= f.label :collection, :class => 'control-label' %>
     <div class="controls">

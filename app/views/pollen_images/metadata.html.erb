@@ -11,11 +11,14 @@
   <h2><%= " Metadata" %></h2>
   
 </div>
-  <h5><strong><%= model_class.human_attribute_name(:title).titleize %>:</strong><%= " " + @pollen_image.title.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:collection).titleize %>:</strong><%= " " + @pollen_image.collection.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:collection_number).titleize %>:</strong><%= " " + @pollen_image.collection_number.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:collector).titleize %>:</strong><%= " " + @pollen_image.collector.to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:place_of_origin).titleize %>:</strong><%= " " + @pollen_image.place_of_origin.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:location).titleize %>:</strong><%= " " + @pollen_image.location.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:region).titleize %>:</strong><%= " " + @pollen_image.region.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:age).titleize + " (cal BP)"%>:</strong><%= " " + number_with_delimiter(@pollen_image.age, :delimiter => ',').to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:depth).titleize + " (meters)"%>:</strong><%= " " + number_with_delimiter(@pollen_image.depth, :delimiter => ',').to_s %></h5>
   
 </h5>
 </div>

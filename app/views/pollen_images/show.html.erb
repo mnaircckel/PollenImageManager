@@ -1,7 +1,7 @@
 <div class="container">
 <%- model_class = PollenImage -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => @pollen_image.latin_name %>
+  <h1><i><%=t '.title', :default => @pollen_image.latin_name %></i>
   <br>
   <%= link_to t('.back_to_index', :default => t("helpers.links.back_to_index")),
               index_entries_path, :class => 'btn btn-default'  %>
@@ -19,12 +19,11 @@
             pollen_image_path(session[:next]), :class => 'btn btn-default'  %>
 <% end %>
 <h5 class="dl-horizontal">
-  <h5><strong><%= model_class.human_attribute_name(:latin_name).titleize %>:</strong><i><%= " " + @pollen_image.latin_name.to_s %></i></h5>
-  <h5><strong><%= model_class.human_attribute_name(:family).titleize %>:</strong><%= " " + @pollen_image.family.to_s %></h5>
+  <h5><strong><%=t "Scientific Name" %>:</strong><i><%= " " + @pollen_image.latin_name.to_s %></i></h5>
+  <h5><strong><%= model_class.human_attribute_name(:family).titleize %>:</strong><%= " " + @pollen_image.family.to_s.upcase %></h5>
   <h5><strong><%= model_class.human_attribute_name(:common_name).titleize %>:</strong><%= " " + @pollen_image.common_name.to_s %></h5>
-  <h5><strong><%= model_class.human_attribute_name(:location).titleize %>:</strong><%= " " + @pollen_image.location.to_s %></h5>
-  <h5><strong><%= model_class.human_attribute_name(:region).titleize %>:</strong><%= " " + @pollen_image.region.to_s %></h5>
-  <h5><strong><%= model_class.human_attribute_name(:age).titleize + " (cal BP)"%>:</strong><%= " " + number_with_delimiter(@pollen_image.age, :delimiter => ',').to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:grain_number).titleize %>:</strong><i><%= " " + @pollen_image.grain_number.to_s %></i></h5>
+  <h5><strong><%= model_class.human_attribute_name(:focal_plane).titleize %>:</strong><i><%= " " + @pollen_image.focal_plane.to_s %></i></h5>
   <h5><strong><%= model_class.human_attribute_name(:notes).titleize %>:</strong><%= " " + @pollen_image.notes.to_s %></h5>
   
 </h5>
