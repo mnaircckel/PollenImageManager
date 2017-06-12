@@ -16,7 +16,9 @@
     </div>
   <% end %>
   
-  <%= f.file_field :image %>
+  <%= f.hidden_field :picture_cache %>
+  <%= f.file_field :picture %>
+  
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">

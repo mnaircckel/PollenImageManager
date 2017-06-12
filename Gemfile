@@ -19,9 +19,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 # twitter bootstrap for CSS styling
-gem "twitter-bootstrap-rails"
-# file uploads and image managment gem
-gem "paperclip", "~> 4.2"
+gem 'twitter-bootstrap-rails', '>= 3.2.0', '< 3.2.2'
 # dropbox for paperclip storage
 gem "paperclip-dropbox", ">= 1.1.7"
 # handle multiple pages for index results
@@ -34,6 +32,9 @@ gem 'pg'
 gem "puma"
 # Mass edit data-entry
 gem 'best_in_place', '~> 3.0.1'
+# Image storage
+gem 'carrierwave'
+gem 'cloudinary'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -148,6 +148,6 @@ class PollenImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pollen_image_params
-      params.require(:pollen_image).permit(:title,:image,:latin_name,:family,:common_name,:region,:age,:location,:notes,:collection,:collection_number,:collector,:place_of_origin,:depth,:grain_number,:focal_plane)
+      params.require(:pollen_image).permit(:picture,:picture_cache,:title,:latin_name,:family,:common_name,:region,:age,:location,:notes,:collection,:collection_number,:collector,:place_of_origin,:depth,:grain_number,:focal_plane)
     end
 end

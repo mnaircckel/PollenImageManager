@@ -2,6 +2,10 @@
 
 # PollenImageManager
 
+# To restart the postgres server and run locally
+sudo service postgresql restart
+rails s -b $IP -p $PORT
+
 See README.rdoc for technical information about system dependencies, configuration, deployment instructions etc...
 
 Live at https://image-manager.herokuapp.com/

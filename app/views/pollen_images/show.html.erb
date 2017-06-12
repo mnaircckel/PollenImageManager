@@ -6,11 +6,11 @@
   <%= link_to t('.back_to_index', :default => t("helpers.links.back_to_index")),
               index_entries_path, :class => 'btn btn-default'  %>
   <%= link_to t('.view_full_size', :default => t("helpers.links.view_full_size")),
-              "#{URI.join(@pollen_image.image.url)}", :class => 'btn btn-default' %>
+              "#{URI.join(@pollen_image.picture_url)}", :class => 'btn btn-default' %>
   <%= link_to t('.view_metadata', :default => t("helpers.links.view_metadata")),
               pollen_image_metadata_path(@pollen_image), :class => 'btn btn-default' %>
   </h1>
-  <%= image_tag @pollen_image.image(:medium) %>
+  <%= image_tag @pollen_image.picture_url :standard %>
 </div>
 <% if session[:position] and session[:ids] and session[:ids].length > 1 %>
   <%= link_to t('.previous_image', :default => t("helpers.links.previous_image")),
