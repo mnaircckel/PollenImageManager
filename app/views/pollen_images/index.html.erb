@@ -29,8 +29,6 @@ a:hover {
       <th><%=t "Scientific Name" %></th>
       <th><%= model_class.human_attribute_name(:common_name).titleize %></th>
       <th><%= model_class.human_attribute_name(:family).titleize %></th>
-      <th><%= model_class.human_attribute_name(:grain_number).titleize %></th>
-      <th><%= model_class.human_attribute_name(:focal_plane).titleize %></th>
       <% if user_signed_in? %>
         <th><%= model_class.human_attribute_name(:location).titleize %></th>
         <th><%= model_class.human_attribute_name(:region).titleize %></th>
@@ -47,8 +45,6 @@ a:hover {
         <td><i><%= best_in_place_if user_signed_in?, pollen_image, :latin_name %></i></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :common_name %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :family %></td>
-        <td><%= best_in_place_if user_signed_in?, pollen_image, :grain_number %></td>
-        <td><%= best_in_place_if user_signed_in?, pollen_image, :focal_plane %></td>
         <% if user_signed_in? %>
           <td><%= best_in_place_if user_signed_in?, pollen_image, :location %></td>
           <td><%= best_in_place_if user_signed_in?, pollen_image, :region, :as => :select, :collection => {" " => " "}.merge(REGION_HASH) %></td>

@@ -22,8 +22,6 @@
   <h5><strong><%=t "Scientific Name" %>:</strong><i><%= " " + @pollen_image.latin_name.to_s %></i></h5>
   <h5><strong><%= model_class.human_attribute_name(:family).titleize %>:</strong><%= " " + @pollen_image.family.to_s.upcase %></h5>
   <h5><strong><%= model_class.human_attribute_name(:common_name).titleize %>:</strong><%= " " + @pollen_image.common_name.to_s %></h5>
-  <h5><strong><%= model_class.human_attribute_name(:grain_number).titleize %>:</strong><i><%= " " + @pollen_image.grain_number.to_s %></i></h5>
-  <h5><strong><%= model_class.human_attribute_name(:focal_plane).titleize %>:</strong><i><%= " " + @pollen_image.focal_plane.to_s %></i></h5>
   <h5><strong><%= model_class.human_attribute_name(:notes).titleize %>:</strong><%= " " + @pollen_image.notes.to_s %></h5>
   
 </h5>
