@@ -51,6 +51,40 @@
     <%= error_span(@pollen_image[:common_name]) %>
   </div>
   
+  <h3>Metadata</h3>
+  
+  <div class="control-group">
+    <%= f.label :collection, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :collection, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:collection]) %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :collection_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :collection_number, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:collection_number]) %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :collector, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :collector, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:collector]) %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :place_of_origin, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :place_of_origin, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollen_image[:place_of_origin]) %>
+  </div>
+
   <div class="control-group">
     <%= f.label :location, :class => 'control-label' %>
     <div class="controls">
@@ -90,41 +124,6 @@
     </div>
     <%= error_span(@pollen_image[:notes]) %>
   </div>
-  
-  <h3>Metadata</h3>
-  
-  <div class="control-group">
-    <%= f.label :collection, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :collection, :class => 'form-control' %>
-    </div>
-    <%= error_span(@pollen_image[:collection]) %>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :collection_number, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :collection_number, :class => 'form-control' %>
-    </div>
-    <%= error_span(@pollen_image[:collection_number]) %>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :collector, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :collector, :class => 'form-control' %>
-    </div>
-    <%= error_span(@pollen_image[:collector]) %>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :place_of_origin, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :place_of_origin, :class => 'form-control' %>
-    </div>
-    <%= error_span(@pollen_image[:place_of_origin]) %>
-  </div>
-  
   <br>
   
   <%= f.submit nil, :class => 'btn btn-primary' %>

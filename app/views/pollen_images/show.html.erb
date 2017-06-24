@@ -7,8 +7,6 @@
               index_entries_path, :class => 'btn btn-default'  %>
   <%= link_to t('.view_full_size', :default => t("helpers.links.view_full_size")),
               "#{URI.join(@pollen_image.picture_url)}", :class => 'btn btn-default' %>
-  <%= link_to t('.view_metadata', :default => t("helpers.links.view_metadata")),
-              pollen_image_metadata_path(@pollen_image), :class => 'btn btn-default' %>
   </h1>
   <%= image_tag @pollen_image.picture_url :standard %>
 </div>
@@ -22,8 +20,15 @@
   <h5><strong><%=t "Scientific Name" %>:</strong><i><%= " " + @pollen_image.latin_name.to_s %></i></h5>
   <h5><strong><%= model_class.human_attribute_name(:family).titleize %>:</strong><%= " " + @pollen_image.family.to_s.upcase %></h5>
   <h5><strong><%= model_class.human_attribute_name(:common_name).titleize %>:</strong><%= " " + @pollen_image.common_name.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:collection).titleize %>:</strong><%= " " + @pollen_image.collection.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:collection_number).titleize %>:</strong><%= " " + @pollen_image.collection_number.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:collector).titleize %>:</strong><%= " " + @pollen_image.collector.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:place_of_origin).titleize %>:</strong><%= " " + @pollen_image.place_of_origin.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:location).titleize %>:</strong><%= " " + @pollen_image.location.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:region).titleize %>:</strong><%= " " + @pollen_image.region.to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:age).titleize + " (cal BP)"%>:</strong><%= " " + number_with_delimiter(@pollen_image.age, :delimiter => ',').to_s %></h5>
+  <h5><strong><%= model_class.human_attribute_name(:depth).titleize + " (meters)"%>:</strong><%= " " + number_with_delimiter(@pollen_image.depth, :delimiter => ',').to_s %></h5>
   <h5><strong><%= model_class.human_attribute_name(:notes).titleize %>:</strong><%= " " + @pollen_image.notes.to_s %></h5>
-  
 </h5>
 <% if user_signed_in? %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),

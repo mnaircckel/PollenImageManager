@@ -30,10 +30,9 @@ a:hover {
       <th><%= model_class.human_attribute_name(:common_name).titleize %></th>
       <th><%= model_class.human_attribute_name(:family).titleize %></th>
       <% if user_signed_in? %>
-        <th><%= model_class.human_attribute_name(:location).titleize %></th>
-        <th><%= model_class.human_attribute_name(:region).titleize %></th>
-        <th><%= model_class.human_attribute_name(:age).titleize + " (cal BP)" %></th>
-        <th><%= model_class.human_attribute_name(:depth).titleize + " (meters)" %></th>
+        <th><%= model_class.human_attribute_name(:collection).titleize %></th>
+        <th><%= model_class.human_attribute_name(:collection_number).titleize %></th>
+        <th><%= model_class.human_attribute_name(:location).titleize%></th>
       <% end %>
       <th><%=t '.details', :default => t("helpers.details") %></th>
     </tr>
@@ -46,10 +45,9 @@ a:hover {
         <td><%= best_in_place_if user_signed_in?, pollen_image, :common_name %></td>
         <td><%= best_in_place_if user_signed_in?, pollen_image, :family %></td>
         <% if user_signed_in? %>
+          <td><%= best_in_place_if user_signed_in?, pollen_image, :collection %></td>
+          <td><%= best_in_place_if user_signed_in?, pollen_image, :collection_number %></td>
           <td><%= best_in_place_if user_signed_in?, pollen_image, :location %></td>
-          <td><%= best_in_place_if user_signed_in?, pollen_image, :region, :as => :select, :collection => {" " => " "}.merge(REGION_HASH) %></td>
-          <td><%= best_in_place_if user_signed_in?, pollen_image, :age %></td>
-          <td><%= best_in_place_if user_signed_in?, pollen_image, :depth %></td>
         <% end %>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
